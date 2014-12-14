@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="http://d3js.org/d3.v2.min.js" charset="utf-8"></script>
+<style>
+
+.chart div {
+  font: 10px sans-serif;
+  background-color: steelblue;
+  text-align: right;
+  padding: 3px;
+  margin: 1px;
+  color: white;
+}
+
+</style>
+  </head>
+  <body>
+    <div class="chart">
+    </div>
+
+  </body>
+  <script> 
+data = [4.5,7,8.5]
+
+var x = d3.scale.linear()
+    .domain([0, d3.max(data)])
+    .range([0, 42]);
+
+
+  d3.select(".chart")
+  .selectAll("div")
+    .data(data)
+  .enter().append("div")
+    .style("width", function(d) { return x(d) * 10 + "px"; })
+    
+    .text(function(d) {
+      var returnColor; 
+      if (d == 4.5) { returnColor = "Boaz";
+                         } else if (d === 7) { returnColor = "Ruth";
+                         } else if (d === 8.5) { returnColor = "Aliyah"; }
+                         return returnColor;
+                       });              
+
+                       
+
+                         
+
+  </script>
+</html>
